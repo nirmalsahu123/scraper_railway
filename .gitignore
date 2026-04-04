@@ -1,0 +1,21 @@
+# Maven
+target/
+*.class
+
+# Output (local only — data goes to Google Drive)
+output/
+*.log
+scraper.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (never commit)
+*.env
+.env

@@ -1,0 +1,68 @@
+scraper:
+  # ── Email (Worker 0) ─────────────────────────────────────────────
+  email-address: ${EMAIL_ADDRESS:}
+  email-app-password: ${EMAIL_APP_PASSWORD:}
+  imap-server: ${IMAP_SERVER:imap.hostinger.com}
+
+  # ── Additional worker emails ─────────────────────────────────────
+  email-address-1: ${EMAIL_ADDRESS_1:}
+  email-app-password-1: ${EMAIL_APP_PASSWORD_1:}
+  email-address-2: ${EMAIL_ADDRESS_2:}
+  email-app-password-2: ${EMAIL_APP_PASSWORD_2:}
+  email-address-3: ${EMAIL_ADDRESS_3:}
+  email-app-password-3: ${EMAIL_APP_PASSWORD_3:}
+  email-address-4: ${EMAIL_ADDRESS_4:}
+  email-app-password-4: ${EMAIL_APP_PASSWORD_4:}
+  email-address-5: ${EMAIL_ADDRESS_5:}
+  email-app-password-5: ${EMAIL_APP_PASSWORD_5:}
+  email-address-6: ${EMAIL_ADDRESS_6:}
+  email-app-password-6: ${EMAIL_APP_PASSWORD_6:}
+  email-address-7: ${EMAIL_ADDRESS_7:}
+  email-app-password-7: ${EMAIL_APP_PASSWORD_7:}
+  email-address-8: ${EMAIL_ADDRESS_8:}
+  email-app-password-8: ${EMAIL_APP_PASSWORD_8:}
+  email-address-9: ${EMAIL_ADDRESS_9:}
+  email-app-password-9: ${EMAIL_APP_PASSWORD_9:}
+  email-address-10: ${EMAIL_ADDRESS_10:}
+  email-app-password-10: ${EMAIL_APP_PASSWORD_10:}
+
+  # ── Scraper behaviour ────────────────────────────────────────────
+  target-url: https://tmrsearch.ipindia.gov.in/estatus
+  rate-limit-per-minute: 8
+  delay-between-searches: 15
+  max-retries: 3
+  session-refresh-minutes: 50
+  otp-timeout-seconds: 350
+
+  # ── Parallel settings ────────────────────────────────────────────
+  num-workers: ${NUM_WORKERS:4}
+  max-concurrent-downloads: 5
+  checkpoint-interval: 25
+  browser-recycle-interval: 60
+  app-timeout-seconds: ${APP_TIMEOUT_SECONDS:250}
+
+  # ── Local storage ────────────────────────────────────────────────
+  storage-mode: ${STORAGE_MODE:local}
+  local-data-dir: ./output/data
+  local-pdf-dir: ./output/pdfs
+
+  # ── Google Drive ─────────────────────────────────────────────────
+  google-drive-enabled: ${GOOGLE_DRIVE_ENABLED:true}
+  google-drive-client-id: ${GOOGLE_DRIVE_CLIENT_ID:}
+  google-drive-client-secret: ${GOOGLE_DRIVE_CLIENT_SECRET:}
+  google-drive-refresh-token: ${GOOGLE_DRIVE_REFRESH_TOKEN:}
+  google-drive-folder-id: ${GOOGLE_DRIVE_FOLDER_ID:}
+
+  # ── Browser ──────────────────────────────────────────────────────
+  headless: ${HEADLESS:true}
+  browser-timeout: ${BROWSER_TIMEOUT:60000}
+
+spring:
+  application:
+    name: lugality-scraper
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
