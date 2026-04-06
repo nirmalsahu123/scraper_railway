@@ -39,7 +39,7 @@ RUN mkdir -p /app/output/data /app/output/pdfs /app/output/debug /app/output/dow
 EXPOSE 8080
 
 ENTRYPOINT ["java", \
-    "-Xms64m", "-Xmx128m", \
+    "-Xms64m", "-Xmx300m", \
     "-XX:+UseG1GC", \
     "-XX:MaxGCPauseMillis=200", \
     "-Dserver.port=${PORT}", \
