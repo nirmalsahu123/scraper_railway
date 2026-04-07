@@ -70,7 +70,24 @@ public class BrowserManager {
                             "--disable-dev-shm-usage",
                             "--disable-blink-features=AutomationControlled",
                             "--disable-gpu",
-                            "--single-process"          // helps on Railway's constrained containers
+                            "--single-process",         // helps on Railway's constrained containers
+                            "--disable-blink-features=AutomationControlled",
+                            "--no-zygote",
+                            "--disable-extensions",
+                            "--disable-background-networking",
+                            "--disable-background-timer-throttling",
+                            "--disable-renderer-backgrounding",
+                            "--no-first-run",
+                            "--mute-audio",
+                            // Memory-reduction flags
+                            "--disable-features=IsolateOrigins,site-per-process",
+                            "--disable-site-isolation-trials",
+                            "--renderer-process-limit=2",
+                            "--disable-application-cache",
+                            "--disk-cache-size=0",
+                            "--media-cache-size=0",
+                            "--aggressive-cache-discard",
+                            "--js-flags=--max-old-space-size=256",
                     ));
 
             browser = playwright.chromium().launch(launchOptions);
